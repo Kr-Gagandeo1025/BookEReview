@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./log_reg.css">
+    <title>BKR - Login</title>
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <h1 class="h1">
+                Login
+            </h1>
+            <form action="/login/authenticate" method="post">
+                <div class="inputs">
+                    <input name="userid" type="text" placeholder="User Id">
+                    <input name="password" type="password" placeholder="Password">
+                    <div class="btns">
+                        <button type="submit" >Login</button>
+                        <button type="button" class="reg"><a href="/register">Register</a></button>
+                    </div>
+                </div>
+            </form>
+            <div class="errors">
+                <% if (typeof errors != "undefined"){  %>
+                    <% errors.forEach(error => { %>
+                        <ul><li class="err-msg"><%=error.message%></li></ul>
+                    <%}); %>
+                <%}%>
+            </div>
+        </div>
+
+        </div>
+</body>
+</html>

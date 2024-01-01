@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BKR - POST A REVIEW</title>
+    <link rel="stylesheet" href="new.css">
+</head>
+<body>
+    <form action="/post-review" class="container" method="post">
+        <h1>Write a Review</h1>
+        <div class="container-div">
+            <label>Title</label>
+            <input class="title-box" name="title" type="text" autofocus="true" autocomplete="off">
+
+            <label>Review</label>
+            <textarea class="review-box" name="review" autofocus="true" autocomplete="off" rows="20"></textarea>
+
+            <label>Your Name</label>
+            <input class="author-box" name="author" type="text" autofocus="true" autocomplete="off" value="<%= userid %>">
+       
+            <div class="ending-div">
+                <label>Rating / 10</label>
+                <input class="rating-box" name="ratings" type="text" autofocus="true" autocomplete="off">
+                
+                <label>ISBN : </label>
+                <input class="isbn-box" name="isbn" type="text" autofocus="true" autocomplete="off">
+            </div>
+            <button class="sub-btn" type="submit">SUBMIT</button>
+        </div>
+    </form>
+    <h5><%=errs%></h5>
+</body>
+</html>

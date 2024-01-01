@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BKR. Book-e-Review</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="nav">
+        <h1 class="nav-title">BKR.</h1>
+        <!-- <a href="#"><h1 class="nav-about">aboutMe : </h1></a> -->
+    </div>
+    <div class="hero-section">
+        <video src="./static-images/bookStockVid.mp4" autoplay loop muted></video>
+        <h1 class="hero-title">
+            BooK-e-Review  
+        </h1>
+    </div>
+    <div class="sorting-tab">
+        <form class="arrange" action="/arrange" method="post" >
+            <button name="arrange_btn" class="arranger-btn" type="submit" value="lastest">Latest 😍</button>
+        </form>
+        <form class="arrange" action="/arrange" method="post" >
+            <button name="arrange_btn" class="arranger-btn" type="submit" value="most-rated">Most Rated ❤️</button>
+        </form>
+        <form class="arrange" action="/arrange" method="post" >
+            <button name="arrange_btn" class="arranger-btn" type="submit" value="least-rated">Least Rated💔</button>
+        </form>
+    </div>
+    <hr>
+    <div class="main-container">
+        <% for (let item of listItems){ %>
+        <div class="card">
+            <div class="card-left">
+                <img src= "https://covers.openlibrary.org/b/isbn/<%= item.isbn %>-M.jpg" alt="book-cover" class="card-img">
+            </div>
+            <div class="card-right">
+                <h1 class="card-title">
+                    <%=item.title %>
+                </h1>
+                <h3 class="card-timestamp">
+                    <%=item.published_on%> by <%=item.author%>
+                </h3>
+                <h3 class="card-timestamp">
+                    ISBN : <%= item.isbn %>  Rating: <%= item.rating %>
+                </h3>
+                <p class="card-desc">
+                    <%= item.review %>
+                </p>
+            </div>
+        </div>
+        <% } %>
+    </div>
+    <form action="/login" class="add-review" method="get">
+        <button class="add-new-btn" type="submit">+</button>
+    </form>
+</body>
+</html>

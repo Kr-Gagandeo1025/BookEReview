@@ -1,0 +1,84 @@
+.container{
+    background-image: url("./static-images/hero-banner.jpg");
+    margin: 0 ;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    h1{
+        font-size: 75px;
+        color: white;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    .container-div{
+        backdrop-filter: blur(5px);
+        /* outline: solid 2px black; */
+        box-shadow: 0px 0px 5px 20px rgba(0, 0, 0, 0.307);
+        border-radius: 10px;
+        padding: 10px;
+        width:80vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: aliceblue;
+        label{
+            font-size: 26px;
+            margin-top: 20px;
+            width: 90%;
+        }
+        input {
+            padding: 5px;
+            background-color: rgba(237, 243, 248, 0.49);
+            border:none;
+            outline: none;
+            border-radius: 10px;
+            font-size: 20px;
+            height: 32px;
+            width: 90%;
+        }
+        textarea{
+            background-color: rgba(237, 243, 248, 0.49);
+            outline: none;
+            border-radius: 10px;
+            font-size: 26px;
+            width: 90%;
+        }
+        .ending-div{
+            margin-top: 20px;
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            label{
+                font-size: 20px;
+                margin-left: 10px;
+                margin-top: 0;
+                width:20%;
+            }
+        }
+        .sub-btn{
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 10px;
+            padding:10px;
+            width: 50%;
+            font-size: 28px;
+            outline: none;
+            border: none;
+            background-color: rgba(128, 198, 245, 0.331);
+        }
+    }
+}
+h5{
+    text-align: center;
+    color:red;
+    text-transform: uppercase;
+}
+@media screen and (max-width: 650px) {
+    .ending-div{
+        flex-direction: column;
+    }
+}
