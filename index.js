@@ -21,6 +21,7 @@ db.connect();
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
+app.set('views', './src/views');
 app.set("view engine","ejs");
 
 let items = [];
