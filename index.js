@@ -9,15 +9,15 @@ const port = 3000;
 
 const db = new pg.Client(
     {
-        user: process.env.PG_USER,
-        host: process.env.PG_HOST,
-        database : process.env.PG_DATABASE,
-        password : process.env.PG_PASSWORD,
-        port : process.env.PG_PORT,
+       connectionString: process.env.DB_URL,
+       ssl:{
+        rejectUnauthorized:false
+       }
     }
-)
+);
 try{
-    db.connect();
+    await db.connect();
+    console.log("db connected")
 }catch(err){
     console.log(err);
 }
@@ -32,7 +32,7 @@ let authenticated = 0;
 let username = "";
 let mainCommand = "SELECT * FROM bookreviews";
 app.get("/", async (req,res)=>{
-    if(items.length === 0){
+    // console.log(items);
         try{
             const Result = await db.query(mainCommand);
             items = Result.rows;
@@ -45,7 +45,6 @@ app.get("/", async (req,res)=>{
                 rating: 404,
                 published_on:'never'}]
         }
-    }
     res.render("index.ejs",{
         listItems:items,
     });
@@ -187,6 +186,4 @@ app.post("/register/newuser",async(req,res)=>{
     }
 })
 
-app.listen(port,()=>{
-    console.log(`Listening on http://localhost:${port}`);
-})
+app.listen(process.env.PORT || port, () => console.log(`Listening on port ${port}`));
