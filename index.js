@@ -67,7 +67,7 @@ app.post("/post-review", async(req, res)=>{
     newPostErr = "";
     const title = req.body.title;
     const review = req.body.review;
-    const author = req.body.author;
+    const author = username;
     const rating = req.body.ratings;
     const isbn = req.body.isbn;
     console.log(title,review,author,rating,isbn);
